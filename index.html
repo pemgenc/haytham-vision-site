@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Haytham VISION is a modular, AI-enabled smart glasses platform designed to enhance situational awareness.">
+  <title>Haytham VISION — See more, know more, act faster.</title>
+
+  <style>
+    :root {
+      --ink: #172019;
+      --muted: #58645a;
+      --paper: #f4f5f1;
+      --white: #fff;
+      --green: #526b50;
+      --dark-green: #26372b;
+      --line: rgba(23, 32, 25, 0.16);
+      --content-width: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    h2, h3, p { margin-top: 0; }
+
+    .site-header {
+      position: absolute;
+      z-index: 5;
+      inset: 0 0 auto;
+      color: var(--white);
+    }
+
+    .nav {
+      width: min(calc(100% - 64px), var(--content-width));
+      min-height: 84px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a { opacity: 0.9; }
+    .nav-links a:hover { opacity: 1; }
+
+    .language-switch {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .language-switch button {
+      padding: 7px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
+      background: transparent;
+      color: white;
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      background: white;
+      color: var(--dark-green);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      color: white;
+      background: transparent;
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: min(820px, 100svh);
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background: #26332a;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(16, 25, 19, 0.25), rgba(16, 25, 19, 0.08) 43%, rgba(16, 25, 19, 0.72)),
+        linear-gradient(0deg, rgba(12, 19, 14, 0.3), transparent 42%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: min(calc(100% - 64px), var(--content-width));
+      min-height: inherit;
+      margin: 0 auto;
+      grid-template-columns: 1fr minmax(320px, 470px);
+      align-items: center;
+    }
+
+    .hero-motto {
+      max-width: 380px;
+      font-size: clamp(20px, 2.3vw, 30px);
+      letter-spacing: -0.035em;
+      line-height: 1.3;
+    }
+
+    .hero-copy {
+      justify-self: end;
+      max-width: 450px;
+      padding: 40px 0 40px 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow { color: #d2decf; }
+
+    .hero-description {
+      max-width: 380px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid currentColor;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .text-link span { font-size: 17px; line-height: 1; }
+    .section { padding: 112px 32px; }
+
+    .section-inner {
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 20px;
+      font-size: clamp(38px, 5vw, 66px);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+    }
+
+    .section-heading > p:not(.eyebrow),
+    .body-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .vision-layout,
+    .about-layout,
+    .careers-layout,
+    .investor-layout,
+    .technology-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .section-image {
+      width: 100%;
+      min-height: 380px;
+      max-height: 580px;
+      object-fit: cover;
+      background: #dfe3dc;
+    }
+
+    .vision-image,
+    .about-image,
+    .careers-image,
+    .investor-layout .section-image {
+      aspect-ratio: 1.15 / 1;
+    }
+
+    .feature-list {
+      display: grid;
+      margin-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 15px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature-number {
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+
+    .feature h3 {
+      margin-bottom: 6px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .feature p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .technology,
+    .investors {
+      color: var(--white);
+      background: var(--dark-green);
+    }
+
+    .technology .section-heading > p:not(.eyebrow),
+    .technology .body-copy,
+    .investors .section-heading > p:not(.eyebrow),
+    .investors .body-copy {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .technology .eyebrow,
+    .investors .eyebrow { color: #c6d5bf; }
+
+    .technology-layout { grid-template-columns: 0.95fr 1.05fr; }
+    .technology-image { aspect-ratio: 1.08 / 1; }
+
+    .optical-path {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .optical-path h3 {
+      margin-bottom: 18px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .path-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      color: #e1e8de;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .path-flow .arrow { color: #b8c9b1; }
+
+    .specs,
+    .careers { background: #e9ece6; }
+
+    .specs-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 34px;
+    }
+
+    .specs-intro .section-heading { margin-bottom: 0; }
+
+    .specs-note {
+      max-width: 300px;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      padding: 18px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .spec-table th { width: 32%; font-weight: 700; }
+    .spec-table td { color: #4d594e; }
+
+    .spec-table tr:first-child th,
+    .spec-table tr:first-child td { border-top: 1px solid var(--line); }
+
+    .roadmap {
+      color: var(--white);
+      background: #1d2921;
+    }
+
+    .roadmap .eyebrow { color: #c6d5bf; }
+
+    .roadmap .section-heading > p:not(.eyebrow) {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .roadmap-image {
+      width: 100%;
+      max-height: 420px;
+      margin-bottom: 46px;
+      object-fit: cover;
+      aspect-ratio: 2.1 / 1;
+      background: #36433a;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .roadmap-card {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .roadmap-year {
+      margin-bottom: 16px;
+      color: #c6d5bf;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .roadmap-card h3 {
+      margin-bottom: 11px;
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .roadmap-card p {
+      max-width: 330px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .applications {
+      padding: 78px 32px;
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .applications-inner {
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .applications h2 {
+      margin-bottom: 0;
+      font-size: clamp(30px, 3.4vw, 46px);
+      font-weight: 500;
+      letter-spacing: -0.05em;
+    }
+
+    .application-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 32px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .application-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .careers-layout { grid-template-columns: 1fr 1fr; }
+    .investor-layout .text-link { margin-top: 10px; }
+
+    .contact {
+      color: var(--white);
+      background: #526b50;
+    }
+
+    .contact .eyebrow { color: #e0eadc; }
+
+    .contact .section-heading > p:not(.eyebrow) {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      overflow-wrap: anywhere;
+    }
+
+    .site-footer {
+      padding: 30px 32px;
+      color: rgba(255, 255, 255, 0.78);
+      background: #18221b;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 1100px) {
+      .nav-links { gap: 12px; font-size: 14px; }
+    }
+
+    @media (max-width: 900px) {
+      .vision-layout,
+      .about-layout,
+      .careers-layout,
+      .investor-layout,
+      .technology-layout { gap: 36px; }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        width: calc(100% - 36px);
+        min-height: 70px;
+      }
+
+      .menu-toggle { display: block; }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 18px;
+        left: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 18px;
+        background: rgba(24, 34, 27, 0.97);
+      }
+
+      .nav-links.is-open { display: flex; }
+
+      .nav-links a {
+        width: 100%;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: 760px;
+        align-items: end;
+      }
+
+      .hero::after {
+        background: linear-gradient(
+          0deg,
+          rgba(16, 25, 19, 0.92),
+          rgba(16, 25, 19, 0.3) 65%,
+          rgba(16, 25, 19, 0.08)
+        );
+      }
+
+      .hero-inner {
+        width: calc(100% - 40px);
+        min-height: 760px;
+        padding: 110px 0 42px;
+        grid-template-columns: 1fr;
+        align-content: end;
+        gap: 22px;
+      }
+
+      .hero-motto { max-width: 300px; font-size: 20px; }
+      .hero-copy { justify-self: start; max-width: 100%; padding: 0; }
+      .section { padding: 78px 20px; }
+      .section-heading h2 { font-size: clamp(38px, 10vw, 52px); }
+      .eyebrow { font-size: 13px; }
+
+      .vision-layout,
+      .about-layout,
+      .careers-layout,
+      .investor-layout,
+      .technology-layout,
+      .applications-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .technology-layout .technology-copy { order: 1; }
+      .technology-layout .technology-image { order: 2; }
+      .section-image { min-height: 260px; }
+      .specs-intro { display: block; }
+      .specs-note { margin-top: 18px; }
+
+      .spec-table th,
+      .spec-table td {
+        padding: 14px 9px;
+        font-size: 12px;
+      }
+
+      .spec-table th { width: 39%; }
+      .roadmap-grid { grid-template-columns: 1fr; gap: 30px; }
+      .roadmap-image { aspect-ratio: 1.25 / 1; }
+      .applications { padding: 65px 20px; }
+      .application-list { grid-template-columns: 1fr; gap: 4px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Haytham VISION home">
+        <span class="brand-mark">HV</span>
+        <span>HAYTHAM VISION</span>
+      </a>
+
+      <div class="language-switch" aria-label="Select language">
+        <button type="button" data-language="en" aria-pressed="true">EN</button>
+        <button type="button" data-language="tr" aria-pressed="false">TR</button>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span data-i18n="menu">Menu</span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#vision" data-i18n="navVision">Vision</a>
+        <a href="#technology" data-i18n="navTechnology">Technology</a>
+        <a href="#careers" data-i18n="navCareers">Careers</a>
+        <a href="#investors" data-i18n="navInvestors">Investor Relations</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Haytham VISION smart glasses">
+      <img class="hero-image" src="images/hero-soldier-smart-glasses.jpg"
+        alt="Person wearing a modern helmet and smart glasses">
+      <div class="hero-inner">
+        <p class="hero-motto" data-i18n="motto">See more, know more, act faster.</p>
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">Modular AI-enabled smart glasses</p>
+          <p class="hero-description" data-i18n="heroDescription">
+            A modular smart-glasses platform designed to support situational awareness and real-time communication.
+          </p>
+          <a class="text-link" href="#vision"><span data-i18n="explore">Explore the platform</span> <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-inner about-layout">
+        <div>
+          <p class="eyebrow" data-i18n="aboutLabel">About</p>
+          <div class="section-heading">
+            <h2 data-i18n="aboutHeading">Engineering a new way to see information.</h2>
+            <p data-i18n="aboutDescription">Haytham VISION is developing a modular wearable display platform that brings optical engineering, sensing, and AI-enabled information systems into a unified product direction.</p>
+          </div>
+          <p class="body-copy" data-i18n="aboutBody">Our approach centers on practical integration: a defined optical path, a wearable frame, modular system components, and a development roadmap shaped around prototype learning and local capability.</p>
+        </div>
+        <img class="section-image about-image" src="images/about.jpg"
+          alt="Haytham VISION engineering and product development" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section" id="vision">
+      <div class="section-inner vision-layout">
+        <div>
+          <p class="eyebrow" data-i18n="visionLabel">Vision</p>
+          <div class="section-heading">
+            <h2 data-i18n="visionHeading">Awareness, integrated into the way teams operate.</h2>
+            <p data-i18n="visionDescription">Haytham VISION brings optical display, sensing, audio, and computing together in a modular wearable platform. The system is designed to deliver relevant information while keeping the wearer focused on the environment.</p>
+          </div>
+          <div class="feature-list">
+            <article class="feature">
+              <span class="feature-number">01</span>
+              <div>
+                <h3 data-i18n="feature1Title">Situational awareness</h3>
+                <p data-i18n="feature1Text">Present mission-relevant information in the wearer’s field of view.</p>
+              </div>
+            </article>
+            <article class="feature">
+              <span class="feature-number">02</span>
+              <div>
+                <h3 data-i18n="feature2Title">Connected teams</h3>
+                <p data-i18n="feature2Text">Support real-time communication between users and command centers.</p>
+              </div>
+            </article>
+            <article class="feature">
+              <span class="feature-number">03</span>
+              <div>
+                <h3 data-i18n="feature3Title">Modular architecture</h3>
+                <p data-i18n="feature3Text">Configure sensing, audio, optics, and compute around mission needs.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <img class="section-image vision-image" src="images/vision.jpg"
+          alt="Haytham VISION platform in use" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section technology" id="technology">
+      <div class="section-inner technology-layout">
+        <img class="section-image technology-image" src="images/technology-rgb-lcos.jpg"
+          alt="Optical display components integrated into a glasses temple" loading="lazy">
+        <div class="technology-copy">
+          <p class="eyebrow" data-i18n="technologyLabel">Technology</p>
+          <div class="section-heading">
+            <h2 data-i18n="technologyHeading">Compact optics. Modular hardware. Clear information.</h2>
+            <p data-i18n="technologyDescription">The optical architecture combines an RGB laser-diode light engine with an LCoS micro-display. Light is coupled into a waveguide integrated with the lens, directing the image toward the wearer’s eye.</p>
+          </div>
+          <p class="body-copy" data-i18n="technologyBody">The platform is designed around a temple-integrated optical module, with LiDAR sensing, a camera, speaker, and waveguide optics. Compute, battery, and radio can be distributed or carried in an external module during prototype development.</p>
+          <div class="optical-path">
+            <h3 data-i18n="opticalPath">Optical path</h3>
+            <div class="path-flow" aria-label="RGB lasers to eye optical path">
+              <span>RGB lasers</span><span class="arrow">→</span>
+              <span>LCoS micro-display</span><span class="arrow">→</span>
+              <span data-i18n="optics">Optics</span><span class="arrow">→</span>
+              <span data-i18n="waveguide">Waveguide</span><span class="arrow">→</span>
+              <span data-i18n="eye">Eye</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section specs" id="dimensions">
+      <div class="section-inner">
+        <div class="specs-intro">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="dimensionsLabel">Target dimensions</p>
+            <h2 data-i18n="dimensionsHeading">Defined around a wearable, modular form.</h2>
+            <p data-i18n="dimensionsDescription">The platform’s dimensional envelope guides optical, mechanical, and system integration across the glasses and supporting modules.</p>
+          </div>
+          <p class="specs-note" data-i18n="dimensionsNote">Values below define the current platform design targets and guide prototype configuration.</p>
+        </div>
+        <table class="spec-table">
+          <tbody>
+            <tr><th scope="row" data-i18n="specFrame">Glasses frame</th><td data-i18n-html="specFrameValue">Front width: 140–155 mm<br>Temple length: 140–160 mm</td></tr>
+            <tr><th scope="row" data-i18n="specMass">Functional configuration mass</th><td>80–120 g</td></tr>
+            <tr><th scope="row" data-i18n="specModule">Integrated temple optical module</th><td>45–65 × 14–20 × 10–16 mm <span data-i18n="perModule">per module</span></td></tr>
+            <tr><th scope="row" data-i18n="specEngine">RGB laser / LCoS engine</th><td>20–30 × 8–12 × 6–10 mm</td></tr>
+            <tr><th scope="row" data-i18n="specWaveguide">Waveguide combiner</th><td data-i18n="specWaveguideValue">Lens-sized optical area; thickness and active region defined by the optical architecture</td></tr>
+            <tr><th scope="row" data-i18n="specCompute">Compute, battery, and radio</th><td data-i18n="specComputeValue">Distributed or configured as an external module for prototype systems</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section roadmap" id="roadmap">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="roadmapLabel">Roadmap</p>
+          <h2 data-i18n="roadmapHeading">Building capability in deliberate stages.</h2>
+          <p data-i18n="roadmapDescription">A staged development plan connects core optical hardware with platform integration, field evaluation, and production growth.</p>
+        </div>
+        <img class="roadmap-image" src="images/roadmap.jpg"
+          alt="Smart-glasses development roadmap and prototype components" loading="lazy">
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <p class="roadmap-year" data-i18n="year1">Year 1</p>
+            <h3 data-i18n="year1Title">Prove the optical foundation</h3>
+            <p data-i18n="year1Text">Develop the laser light-engine prototype and establish partnerships for waveguides, sensors, and audio.</p>
+          </article>
+          <article class="roadmap-card">
+            <p class="roadmap-year" data-i18n="year2">Year 2</p>
+            <h3 data-i18n="year2Title">Integrate and evaluate</h3>
+            <p data-i18n="year2Text">Build an AI-enabled smart-glasses prototype, conduct field testing, and demonstrate the integrated platform.</p>
+          </article>
+          <article class="roadmap-card">
+            <p class="roadmap-year" data-i18n="year3">Year 3+</p>
+            <h3 data-i18n="year3Title">Expand production capability</h3>
+            <p data-i18n="year3Text">Expand local production and prepare the platform for commercial and defense-scale deployment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="applications" aria-labelledby="applications-title">
+      <div class="applications-inner">
+        <h2 id="applications-title" data-i18n="applicationsTitle">Designed for demanding environments.</h2>
+        <ul class="application-list">
+          <li data-i18n="application1">Defense and tactical operations</li>
+          <li data-i18n="application2">Real-time command-center communication</li>
+          <li data-i18n="application3">Situational awareness</li>
+          <li data-i18n="application4">Mission simulation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section careers" id="careers">
+      <div class="section-inner careers-layout">
+        <img class="section-image careers-image" src="images/career.jpg"
+          alt="Engineering team working on wearable optical technology" loading="lazy">
+        <div>
+          <p class="eyebrow" data-i18n="careersLabel">Careers</p>
+          <div class="section-heading">
+            <h2 data-i18n="careersHeading">Build what comes next.</h2>
+            <p data-i18n="careersDescription">We welcome people who want to work across optics, embedded systems, AI, product design, and advanced manufacturing.</p>
+          </div>
+          <a class="text-link" href="mailto:careers@haythamvision.com">
+            <span data-i18n="careersLink">Contact our team</span> <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section investors" id="investors">
+      <div class="section-inner investor-layout">
+        <div>
+          <p class="eyebrow" data-i18n="investorsLabel">Investor Relations</p>
+          <div class="section-heading">
+            <h2 data-i18n="investorsHeading">A focused platform opportunity.</h2>
+            <p data-i18n="investorsDescription">Haytham VISION is advancing a modular smart-glasses platform through optical-engine development, system integration, and staged product validation.</p>
+          </div>
+          <p class="body-copy" data-i18n="investorsBody">For investor and strategic partnership inquiries, contact our team.</p>
+          <a class="text-link" href="mailto:investors@haythamvision.com">
+            <span data-i18n="investorsLink">Investor inquiries</span> <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <img class="section-image" src="images/investors.jpg"
+          alt="Business team reviewing a technology investment opportunity" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-inner">
+        <p class="eyebrow" data-i18n="contactLabel">Contact</p>
+        <div class="section-heading">
+          <h2 data-i18n="contactHeading">Let’s start a conversation.</h2>
+          <p data-i18n="contactDescription">Contact Haytham VISION for general questions, partnerships, or information about our platform.</p>
+          <a class="contact-email" href="mailto:info@haythamvision.com">info@haythamvision.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Haytham VISION</span>
+      <span data-i18n="footerMotto">See more, know more, act faster.</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        menu: "Menu",
+        navVision: "Vision",
+        navTechnology: "Technology",
+        navCareers: "Careers",
+        navInvestors: "Investor Relations",
+        navAbout: "About",
+        navContact: "Contact",
+        motto: "See more, know more, act faster.",
+        heroEyebrow: "Modular AI-enabled smart glasses",
+        heroDescription: "A modular smart-glasses platform designed to support situational awareness and real-time communication.",
+        explore: "Explore the platform",
+        visionLabel: "Vision",
+        visionHeading: "Awareness, integrated into the way teams operate.",
+        visionDescription: "Haytham VISION brings optical display, sensing, audio, and computing together in a modular wearable platform. The system is designed to deliver relevant information while keeping the wearer focused on the environment.",
+        feature1Title: "Situational awareness",
+        feature1Text: "Present mission-relevant information in the wearer’s field of view.",
+        feature2Title: "Connected teams",
+        feature2Text: "Support real-time communication between users and command centers.",
+        feature3Title: "Modular architecture",
+        feature3Text: "Configure sensing, audio, optics, and compute around mission needs.",
+        technologyLabel: "Technology",
+        technologyHeading: "Compact optics. Modular hardware. Clear information.",
+        technologyDescription: "The optical architecture combines an RGB laser-diode light engine with an LCoS micro-display. Light is coupled into a waveguide integrated with the lens, directing the image toward the wearer’s eye.",
+        technologyBody: "The platform is designed around a temple-integrated optical module, with LiDAR sensing, a camera, speaker, and waveguide optics. Compute, battery, and radio can be distributed or carried in an external module during prototype development.",
+        opticalPath: "Optical path",
+        optics: "Optics",
+        waveguide: "Waveguide",
+        eye: "Eye",
+        dimensionsLabel: "Target dimensions",
+        dimensionsHeading: "Defined around a wearable, modular form.",
+        dimensionsDescription: "The platform’s dimensional envelope guides optical, mechanical, and system integration across the glasses and supporting modules.",
+        dimensionsNote: "Values below define the current platform design targets and guide prototype configuration.",
+        specFrame: "Glasses frame",
+        specFrameValue: "Front width: 140–155 mm<br>Temple length: 140–160 mm",
+        specMass: "Functional configuration mass",
+        specModule: "Integrated temple optical module",
+        perModule: "per module",
+        specEngine: "RGB laser / LCoS engine",
+        specWaveguide: "Waveguide combiner",
+        specWaveguideValue: "Lens-sized optical area; thickness and active region defined by the optical architecture",
+        specCompute: "Compute, battery, and radio",
+        specComputeValue: "Distributed or configured as an external module for prototype systems",
+        roadmapLabel: "Roadmap",
+        roadmapHeading: "Building capability in deliberate stages.",
+        roadmapDescription: "A staged development plan connects core optical hardware with platform integration, field evaluation, and production growth.",
+        year1: "Year 1",
+        year1Title: "Prove the optical foundation",
+        year1Text: "Develop the laser light-engine prototype and establish partnerships for waveguides, sensors, and audio.",
+        year2: "Year 2",
+        year2Title: "Integrate and evaluate",
+        year2Text: "Build an AI-enabled smart-glasses prototype, conduct field testing, and demonstrate the integrated platform.",
+        year3: "Year 3+",
+        year3Title: "Expand production capability",
+        year3Text: "Expand local production and prepare the platform for commercial and defense-scale deployment.",
+        applicationsTitle: "Designed for demanding environments.",
+        application1: "Defense and tactical operations",
+        application2: "Real-time command-center communication",
+        application3: "Situational awareness",
+        application4: "Mission simulation",
+        aboutLabel: "About",
+        aboutHeading: "Engineering a new way to see information.",
+        aboutDescription: "Haytham VISION is developing a modular wearable display platform that brings optical engineering, sensing, and AI-enabled information systems into a unified product direction.",
+        aboutBody: "Our approach centers on practical integration: a defined optical path, a wearable frame, modular system components, and a development roadmap shaped around prototype learning and local capability.",
+        careersLabel: "Careers",
+        careersHeading: "Build what comes next.",
+        careersDescription: "We welcome people who want to work across optics, embedded systems, AI, product design, and advanced manufacturing.",
+        careersLink: "Contact our team",
+        investorsLabel: "Investor Relations",
+        investorsHeading: "A focused platform opportunity.",
+        investorsDescription: "Haytham VISION is advancing a modular smart-glasses platform through optical-engine development, system integration, and staged product validation.",
+        investorsBody: "For investor and strategic partnership inquiries, contact our team.",
+        investorsLink: "Investor inquiries",
+        contactLabel: "Contact",
+        contactHeading: "Let’s start a conversation.",
+        contactDescription: "Contact Haytham VISION for general questions, partnerships, or information about our platform.",
+        footerMotto: "See more, know more, act faster."
+      },
+      tr: {
+        menu: "Menü",
+        navVision: "Görüş",
+        navTechnology: "Teknoloji",
+        navCareers: "Kariyer",
+        navInvestors: "Yatırımcı İlişkileri",
+        navAbout: "Hakkımızda",
+        navContact: "İletişim",
+        motto: "Daha fazlasını gör, daha fazlasını bil, daha hızlı harekete geç.",
+        heroEyebrow: "Modüler, yapay zekâ destekli akıllı gözlük",
+        heroDescription: "Durumsal farkındalığı ve gerçek zamanlı iletişimi desteklemek için tasarlanmış modüler bir akıllı gözlük platformu.",
+        explore: "Platformu keşfedin",
+        visionLabel: "Görüş",
+        visionHeading: "Farkındalık, ekiplerin çalışma biçimine entegre.",
+        visionDescription: "Haytham VISION; optik görüntüleme, algılama, ses ve bilgi işlem teknolojilerini modüler, giyilebilir bir platformda bir araya getirir. Sistem, kullanıcının çevresine odaklanmasını sağlarken ilgili bilgileri sunmak üzere tasarlanmıştır.",
+        feature1Title: "Durumsal farkındalık",
+        feature1Text: "Görevle ilgili bilgileri kullanıcının görüş alanında sunar.",
+        feature2Title: "Bağlantılı ekipler",
+        feature2Text: "Kullanıcılar ve komuta merkezleri arasında gerçek zamanlı iletişimi destekler.",
+        feature3Title: "Modüler mimari",
+        feature3Text: "Algılama, ses, optik ve bilgi işlem bileşenlerini görev ihtiyaçlarına göre yapılandırır.",
+        technologyLabel: "Teknoloji",
+        technologyHeading: "Kompakt optik. Modüler donanım. Net bilgi.",
+        technologyDescription: "Optik mimari, RGB lazer diyotlu ışık motorunu LCoS mikro ekranla birleştirir. Işık, merceğe entegre bir dalga kılavuzuna aktarılır ve görüntü kullanıcının gözüne yönlendirilir.",
+        technologyBody: "Platform; LiDAR algılama, kamera, hoparlör ve dalga kılavuzu optiklerini içeren, gözlük sapına entegre bir optik modül etrafında tasarlanmıştır. Prototip geliştirme sırasında bilgi işlem, batarya ve radyo bileşenleri dağıtılabilir veya harici bir modülde taşınabilir.",
+        opticalPath: "Optik yol",
+        optics: "Optik",
+        waveguide: "Dalga kılavuzu",
+        eye: "Göz",
+        dimensionsLabel: "Hedef boyutlar",
+        dimensionsHeading: "Giyilebilir ve modüler bir form için tasarlandı.",
+        dimensionsDescription: "Platformun boyut sınırları, gözlük ve destekleyici modüller genelinde optik, mekanik ve sistem entegrasyonuna yön verir.",
+        dimensionsNote: "Aşağıdaki değerler mevcut platform tasarım hedeflerini tanımlar ve prototip yapılandırmasına yön verir.",
+        specFrame: "Gözlük çerçevesi",
+        specFrameValue: "Ön genişlik: 140–155 mm<br>Gözlük sapı uzunluğu: 140–160 mm",
+        specMass: "İşlevsel yapılandırma ağırlığı",
+        specModule: "Entegre sap optik modülü",
+        perModule: "her modül için",
+        specEngine: "RGB lazer / LCoS motoru",
+        specWaveguide: "Dalga kılavuzu birleştiricisi",
+        specWaveguideValue: "Mercek boyutunda optik alan; kalınlık ve aktif bölge optik mimariye göre belirlenir",
+        specCompute: "Bilgi işlem, batarya ve radyo",
+        specComputeValue: "Prototip sistemler için dağıtık veya harici modül olarak yapılandırılır",
+        roadmapLabel: "Yol Haritası",
+        roadmapHeading: "Yetkinlikleri planlı aşamalarla geliştiriyoruz.",
+        roadmapDescription: "Aşamalı geliştirme planı; temel optik donanımı platform entegrasyonu, saha değerlendirmesi ve üretim kapasitesinin artırılmasıyla birleştirir.",
+        year1: "1. Yıl",
+        year1Title: "Optik temeli doğrulayın",
+        year1Text: "Lazer ışık motoru prototipini geliştirin; dalga kılavuzları, sensörler ve ses sistemleri için iş ortaklıkları kurun.",
+        year2: "2. Yıl",
+        year2Title: "Entegre edin ve değerlendirin",
+        year2Text: "Yapay zekâ destekli akıllı gözlük prototipi geliştirin, saha testleri yapın ve entegre platformu tanıtın.",
+        year3: "3. Yıl ve sonrası",
+        year3Title: "Üretim kapasitesini genişletin",
+        year3Text: "Yerel üretimi genişletin ve platformu ticari ve savunma ölçeğinde kullanıma hazırlayın.",
+        applicationsTitle: "Zorlu ortamlar için tasarlandı.",
+        application1: "Savunma ve taktik operasyonlar",
+        application2: "Komuta merkezleriyle gerçek zamanlı iletişim",
+        application3: "Durumsal farkındalık",
+        application4: "Görev simülasyonu",
+        aboutLabel: "Hakkımızda",
+        aboutHeading: "Bilgiyi görmenin yeni bir yolunu geliştiriyoruz.",
+        aboutDescription: "Haytham VISION; optik mühendisliğini, algılamayı ve yapay zekâ destekli bilgi sistemlerini ortak bir ürün vizyonunda bir araya getiren modüler, giyilebilir bir görüntüleme platformu geliştiriyor.",
+        aboutBody: "Yaklaşımımız pratik entegrasyona odaklanır: tanımlı bir optik yol, giyilebilir bir çerçeve, modüler sistem bileşenleri ve prototiplerden öğrenme ile yerel yetkinlikler doğrultusunda şekillenen bir geliştirme yol haritası.",
+        careersLabel: "Kariyer",
+        careersHeading: "Geleceği birlikte inşa edin.",
+        careersDescription: "Optik, gömülü sistemler, yapay zekâ, ürün tasarımı ve ileri üretim alanlarında çalışmak isteyen adaylarla tanışmak isteriz.",
+        careersLink: "Ekibimizle iletişime geçin",
+        investorsLabel: "Yatırımcı İlişkileri",
+        investorsHeading: "Odaklı bir platform fırsatı.",
+        investorsDescription: "Haytham VISION; optik motor geliştirme, sistem entegrasyonu ve aşamalı ürün doğrulama yoluyla modüler bir akıllı gözlük platformunu ilerletiyor.",
+        investorsBody: "Yatırımcı ve stratejik ortaklık talepleri için ekibimizle iletişime geçin.",
+        investorsLink: "Yatırımcı talepleri",
+        contactLabel: "İletişim",
+        contactHeading: "Bir görüşme başlatalım.",
+        contactDescription: "Genel sorular, ortaklıklar veya platformumuz hakkında bilgi için Haytham VISION ile iletişime geçin.",
+        footerMotto: "Daha fazlasını gör, daha fazlasını bil, daha hızlı harekete geç."
+      }
+    };
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    function setLanguage(language) {
+      const selectedLanguage = translations[language] ? language : "en";
+      document.documentElement.lang = selectedLanguage;
+
+      document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach((element) => {
+        const key = element.dataset.i18n || element.dataset.i18nHtml;
+        if (translations[selectedLanguage][key]) {
+          if (element.hasAttribute("data-i18n-html")) {
+            element.innerHTML = translations[selectedLanguage][key];
+          } else {
+            element.textContent = translations[selectedLanguage][key];
+          }
+        }
+      });
+
+      document.querySelectorAll("[data-language]").forEach((button) => {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.language === selectedLanguage)
+        );
+      });
+
+      try {
+        localStorage.setItem("haythamVisionLanguage", selectedLanguage);
+      } catch (error) {
+        // Language switching still works if local storage is unavailable.
+      }
+    }
+
+    document.querySelectorAll("[data-language]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    let savedLanguage = "en";
+    try {
+      savedLanguage = localStorage.getItem("haythamVisionLanguage") || "en";
+    } catch (error) {
+      // English is the default if local storage is unavailable.
+    }
+    setLanguage(savedLanguage);
+  </script>
+</body>
+</html>
