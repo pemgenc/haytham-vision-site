@@ -419,42 +419,42 @@
         <button type="button" data-language="tr" aria-pressed="false">TR</button>
       </div>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="menu">
         Menu
       </button>
 
       <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#vision">Vision</a>
-        <a href="#technology">Technology</a>
-        <a href="#careers">Careers</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#vision" data-i18n="navVision">Vision</a>
+        <a href="#technology" data-i18n="navTechnology">Technology</a>
+        <a href="#careers" data-i18n="navCareers">Careers</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </div>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="HOLOBILIG smart glasses">
-      <div class="hero-slider" aria-label="HOLOBILIG product images">
-        <img class="hero-image is-active" src="images/hero-holobilig-2.jpg" alt="Person wearing HOLOBILIG AI smart glasses">
-        <img class="hero-image" src="images/hero-holobilig-1.gif" alt="Close-up of HOLOBILIG smart glasses">
+    <section class="hero" aria-label="HOLOBILIG smart glasses" data-i18n-aria="heroLabel">
+      <div class="hero-slider" aria-label="HOLOBILIG product images" data-i18n-aria="sliderLabel">
+        <img class="hero-image is-active" src="images/hero-holobilig-2.jpg" alt="Person wearing HOLOBILIG AI smart glasses" data-i18n-alt="heroImage1">
+        <img class="hero-image" src="images/hero-holobilig-1.gif" alt="Close-up of HOLOBILIG smart glasses" data-i18n-alt="heroImage2">
 
-        <button class="slider-button slider-prev" type="button" aria-label="Previous image">‹</button>
-        <button class="slider-button slider-next" type="button" aria-label="Next image">›</button>
+        <button class="slider-button slider-prev" type="button" aria-label="Previous image" data-i18n-aria="previousImage">‹</button>
+        <button class="slider-button slider-next" type="button" aria-label="Next image" data-i18n-aria="nextImage">›</button>
 
-        <div class="slider-dots" aria-label="Choose hero image">
-          <button class="slider-dot is-active" type="button" aria-label="Show image 1"></button>
-          <button class="slider-dot" type="button" aria-label="Show image 2"></button>
+        <div class="slider-dots" aria-label="Choose hero image" data-i18n-aria="chooseImage">
+          <button class="slider-dot is-active" type="button" aria-label="Show image 1" data-i18n-aria="showImage1"></button>
+          <button class="slider-dot" type="button" aria-label="Show image 2" data-i18n-aria="showImage2"></button>
         </div>
       </div>
 
       <div class="hero-inner">
-        <p class="hero-motto">See more, know more, act faster.</p>
+        <p class="hero-motto" data-i18n="motto">See more, know more, act faster.</p>
         <div class="hero-copy">
-          <p class="eyebrow">Modular AI-enabled smart glasses</p>
-          <p class="hero-description">A modular smart-glasses platform designed to support situational awareness and real-time communication.</p>
+          <p class="eyebrow" data-i18n="heroEyebrow">Modular AI-enabled smart glasses</p>
+          <p class="hero-description" data-i18n="heroDescription">A modular smart-glasses platform designed to support situational awareness and real-time communication.</p>
           <a class="text-link" href="#vision">
-            Explore the platform <span aria-hidden="true">↘</span>
+            <span data-i18n="explore">Explore the platform</span> <span aria-hidden="true">↘</span>
           </a>
         </div>
       </div>
@@ -463,64 +463,62 @@
     <section class="section" id="about">
       <div class="section-inner about-layout">
         <div>
-          <p class="eyebrow">About</p>
+          <p class="eyebrow" data-i18n="aboutEyebrow">About</p>
           <div class="section-heading">
-            <h2>Engineering a new way to see information.</h2>
-            <p>HOLOBILIG is developing a modular AI smart-glasses platform for consumer and defence applications. We combine optical engineering, computer-generated holography, sensing, and AI-enabled information systems to make useful information more accessible through wearable displays.</p>
+            <h2 data-i18n="aboutTitle">Engineering a new way to see information.</h2>
+            <p data-i18n="aboutDescription">HOLOBILIG is developing a modular AI smart-glasses platform for consumer and defence applications. We combine optical engineering, computer-generated holography, sensing, and AI-enabled information systems to make useful information more accessible through wearable displays.</p>
           </div>
         </div>
-        <img class="section-image" src="images/about.jpg" alt="HOLOBILIG engineering and product development" loading="lazy">
+        <img class="section-image" src="images/about.jpg" alt="HOLOBILIG engineering and product development" data-i18n-alt="aboutImage" loading="lazy">
       </div>
     </section>
 
     <section class="section" id="vision">
       <div class="section-inner vision-layout">
         <div>
-          <p class="eyebrow">Vision</p>
+          <p class="eyebrow" data-i18n="visionEyebrow">Vision</p>
           <div class="section-heading">
-            <h2>Awareness, integrated into the way teams operate.</h2>
-            <p>HOLOBILIG brings optical display, sensing, audio, and computing together in a modular wearable platform. The system is designed to deliver relevant information while keeping the wearer focused on the environment.</p>
+            <h2 data-i18n="visionTitle">Awareness, integrated into the way teams operate.</h2>
+            <p data-i18n="visionDescription">HOLOBILIG brings optical display, sensing, audio, and computing together in a modular wearable platform. The system is designed to deliver relevant information while keeping the wearer focused on the environment.</p>
           </div>
 
           <div class="feature-list">
             <article class="feature">
               <span class="feature-number">01</span>
               <div>
-                <h3>Situational awareness</h3>
-                <p>Present relevant information in the wearer’s field of view.</p>
+                <h3 data-i18n="feature1Title">Situational awareness</h3>
+                <p data-i18n="feature1Description">Present relevant information in the wearer’s field of view.</p>
               </div>
             </article>
-
             <article class="feature">
               <span class="feature-number">02</span>
               <div>
-                <h3>Connected teams</h3>
-                <p>Support real-time communication between users and command centers.</p>
+                <h3 data-i18n="feature2Title">Connected teams</h3>
+                <p data-i18n="feature2Description">Support real-time communication between users and command centers.</p>
               </div>
             </article>
-
             <article class="feature">
               <span class="feature-number">03</span>
               <div>
-                <h3>Modular architecture</h3>
-                <p>Configure sensing, audio, optics, and computing around user needs.</p>
+                <h3 data-i18n="feature3Title">Modular architecture</h3>
+                <p data-i18n="feature3Description">Configure sensing, audio, optics, and computing around user needs.</p>
               </div>
             </article>
           </div>
         </div>
 
-        <img class="section-image" src="images/vision.jpg" alt="HOLOBILIG smart-glasses platform in use" loading="lazy">
+        <img class="section-image" src="images/vision.jpg" alt="HOLOBILIG smart-glasses platform in use" data-i18n-alt="visionImage" loading="lazy">
       </div>
     </section>
 
     <section class="section technology" id="technology">
       <div class="section-inner technology-layout">
-        <img class="section-image" src="images/technology-rgb-lcos.jpg" alt="Optical display components integrated into a glasses temple" loading="lazy">
+        <img class="section-image" src="images/technology-rgb-lcos.jpg" alt="Optical display components integrated into a glasses temple" data-i18n-alt="technologyImage" loading="lazy">
         <div>
-          <p class="eyebrow">Technology</p>
+          <p class="eyebrow" data-i18n="technologyEyebrow">Technology</p>
           <div class="section-heading">
-            <h2>Compact optics. Modular hardware. Clear information.</h2>
-            <p>The optical architecture combines an RGB laser-diode light engine with a spatial light modulator (SLM) microdisplay. Light is coupled into a waveguide integrated with the lens, directing the image toward the wearer’s eye.</p>
+            <h2 data-i18n="technologyTitle">Compact optics. Modular hardware. Clear information.</h2>
+            <p data-i18n="technologyDescription">The optical architecture combines an RGB laser-diode light engine with a spatial light modulator (SLM) microdisplay. Light is coupled into a waveguide integrated with the lens, directing the image toward the wearer’s eye.</p>
           </div>
         </div>
       </div>
@@ -528,12 +526,12 @@
 
     <section class="section careers" id="careers">
       <div class="section-inner careers-layout">
-        <img class="section-image" src="images/career.jpg" alt="Engineering team working on wearable optical technology" loading="lazy">
+        <img class="section-image" src="images/career.jpg" alt="Engineering team working on wearable optical technology" data-i18n-alt="careersImage" loading="lazy">
         <div>
-          <p class="eyebrow">Careers</p>
+          <p class="eyebrow" data-i18n="careersEyebrow">Careers</p>
           <div class="section-heading">
-            <h2>Build what comes next.</h2>
-            <p>We welcome people who want to work across optics, embedded systems, AI, product design, and advanced manufacturing.</p>
+            <h2 data-i18n="careersTitle">Build what comes next.</h2>
+            <p data-i18n="careersDescription">We welcome people who want to work across optics, embedded systems, AI, product design, and advanced manufacturing.</p>
           </div>
         </div>
       </div>
@@ -541,10 +539,10 @@
 
     <section class="section contact" id="contact">
       <div class="section-inner">
-        <p class="eyebrow">Contact</p>
+        <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
         <div class="section-heading">
-          <h2>Let’s start a conversation.</h2>
-          <p>Contact HOLOBILIG for general questions, partnerships, or information about the platform.</p>
+          <h2 data-i18n="contactTitle">Let’s start a conversation.</h2>
+          <p data-i18n="contactDescription">Contact HOLOBILIG for general questions, partnerships, or information about the platform.</p>
           <a class="contact-email" href="mailto:info@holobilig.com">info@holobilig.com</a>
         </div>
       </div>
@@ -554,11 +552,154 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <span>© <span id="year"></span> HOLOBILIG</span>
-      <span>See more, know more, act faster.</span>
+      <span data-i18n="footerMotto">See more, know more, act faster.</span>
     </div>
   </footer>
 
   <script>
+    const translations = {
+      en: {
+        pageTitle: "HOLOBILIG — See more, know more, act faster.",
+        description: "HOLOBILIG is a modular, AI-enabled smart-glasses platform designed to enhance situational awareness.",
+        mainNavigation: "Main navigation",
+        selectLanguage: "Select language",
+        menu: "Menu",
+        navAbout: "About",
+        navVision: "Vision",
+        navTechnology: "Technology",
+        navCareers: "Careers",
+        navContact: "Contact",
+        heroLabel: "HOLOBILIG smart glasses",
+        sliderLabel: "HOLOBILIG product images",
+        heroImage1: "Person wearing HOLOBILIG AI smart glasses",
+        heroImage2: "Close-up of HOLOBILIG smart glasses",
+        previousImage: "Previous image",
+        nextImage: "Next image",
+        chooseImage: "Choose hero image",
+        showImage1: "Show image 1",
+        showImage2: "Show image 2",
+        motto: "See more, know more, act faster.",
+        heroEyebrow: "Modular AI-enabled smart glasses",
+        heroDescription: "A modular smart-glasses platform designed to support situational awareness and real-time communication.",
+        explore: "Explore the platform",
+        aboutEyebrow: "About",
+        aboutTitle: "Engineering a new way to see information.",
+        aboutDescription: "HOLOBILIG is developing a modular AI smart-glasses platform for consumer and defence applications. We combine optical engineering, computer-generated holography, sensing, and AI-enabled information systems to make useful information more accessible through wearable displays.",
+        aboutImage: "HOLOBILIG engineering and product development",
+        visionEyebrow: "Vision",
+        visionTitle: "Awareness, integrated into the way teams operate.",
+        visionDescription: "HOLOBILIG brings optical display, sensing, audio, and computing together in a modular wearable platform. The system is designed to deliver relevant information while keeping the wearer focused on the environment.",
+        feature1Title: "Situational awareness",
+        feature1Description: "Present relevant information in the wearer’s field of view.",
+        feature2Title: "Connected teams",
+        feature2Description: "Support real-time communication between users and command centers.",
+        feature3Title: "Modular architecture",
+        feature3Description: "Configure sensing, audio, optics, and computing around user needs.",
+        visionImage: "HOLOBILIG smart-glasses platform in use",
+        technologyEyebrow: "Technology",
+        technologyTitle: "Compact optics. Modular hardware. Clear information.",
+        technologyDescription: "The optical architecture combines an RGB laser-diode light engine with a spatial light modulator (SLM) microdisplay. Light is coupled into a waveguide integrated with the lens, directing the image toward the wearer’s eye.",
+        technologyImage: "Optical display components integrated into a glasses temple",
+        careersEyebrow: "Careers",
+        careersTitle: "Build what comes next.",
+        careersDescription: "We welcome people who want to work across optics, embedded systems, AI, product design, and advanced manufacturing.",
+        careersImage: "Engineering team working on wearable optical technology",
+        contactEyebrow: "Contact",
+        contactTitle: "Let’s start a conversation.",
+        contactDescription: "Contact HOLOBILIG for general questions, partnerships, or information about the platform.",
+        footerMotto: "See more, know more, act faster."
+      },
+      tr: {
+        pageTitle: "HOLOBILIG — Daha fazlasını gör, daha fazlasını bil, daha hızlı hareket et.",
+        description: "HOLOBILIG, durumsal farkındalığı artırmak için tasarlanmış modüler ve yapay zekâ destekli bir akıllı gözlük platformudur.",
+        mainNavigation: "Ana menü",
+        selectLanguage: "Dil seçin",
+        menu: "Menü",
+        navAbout: "Hakkında",
+        navVision: "Vizyon",
+        navTechnology: "Teknoloji",
+        navCareers: "Kariyer",
+        navContact: "İletişim",
+        heroLabel: "HOLOBILIG akıllı gözlükleri",
+        sliderLabel: "HOLOBILIG ürün görselleri",
+        heroImage1: "HOLOBILIG yapay zekâ destekli akıllı gözlüklerini takan kişi",
+        heroImage2: "HOLOBILIG akıllı gözlüklerinin yakın çekimi",
+        previousImage: "Önceki görsel",
+        nextImage: "Sonraki görsel",
+        chooseImage: "Ana görseli seçin",
+        showImage1: "1. görseli göster",
+        showImage2: "2. görseli göster",
+        motto: "Daha fazlasını gör, daha fazlasını bil, daha hızlı hareket et.",
+        heroEyebrow: "Modüler, yapay zekâ destekli akıllı gözlük",
+        heroDescription: "Durumsal farkındalığı ve gerçek zamanlı iletişimi desteklemek üzere tasarlanmış modüler bir akıllı gözlük platformu.",
+        explore: "Platformu keşfedin",
+        aboutEyebrow: "Hakkında",
+        aboutTitle: "Bilgiyi görmenin yeni bir yolunu tasarlıyoruz.",
+        aboutDescription: "HOLOBILIG, tüketici ve savunma uygulamalarına yönelik modüler, yapay zekâ destekli bir akıllı gözlük platformu geliştiriyor. Optik mühendisliğini, bilgisayar tarafından oluşturulan holografiyi, algılama teknolojilerini ve yapay zekâ destekli bilgi sistemlerini bir araya getirerek faydalı bilgileri giyilebilir ekranlar üzerinden daha erişilebilir hâle getiriyoruz.",
+        aboutImage: "HOLOBILIG mühendislik ve ürün geliştirme çalışmaları",
+        visionEyebrow: "Vizyon",
+        visionTitle: "Farkındalık, ekiplerin çalışma biçimine entegre.",
+        visionDescription: "HOLOBILIG; optik ekranı, algılama teknolojilerini, sesi ve bilgi işlem gücünü modüler bir giyilebilir platformda bir araya getirir. Sistem, kullanıcının çevresine odaklanmasını sağlarken ilgili bilgileri sunmak üzere tasarlanmıştır.",
+        feature1Title: "Durumsal farkındalık",
+        feature1Description: "İlgili bilgileri kullanıcının görüş alanında sunar.",
+        feature2Title: "Bağlantılı ekipler",
+        feature2Description: "Kullanıcılar ve komuta merkezleri arasında gerçek zamanlı iletişimi destekler.",
+        feature3Title: "Modüler mimari",
+        feature3Description: "Algılama, ses, optik ve bilgi işlem bileşenlerini kullanıcı ihtiyaçlarına göre yapılandırır.",
+        visionImage: "Kullanım hâlindeki HOLOBILIG akıllı gözlük platformu",
+        technologyEyebrow: "Teknoloji",
+        technologyTitle: "Kompakt optik. Modüler donanım. Net bilgi.",
+        technologyDescription: "Optik mimari, RGB lazer diyotlu bir ışık motorunu uzamsal ışık modülatörlü (SLM) bir mikro ekranla birleştirir. Işık, lensle bütünleşik bir dalga kılavuzuna aktarılır ve görüntü kullanıcının gözüne yönlendirilir.",
+        technologyImage: "Gözlük sapına entegre edilmiş optik ekran bileşenleri",
+        careersEyebrow: "Kariyer",
+        careersTitle: "Geleceği birlikte inşa edelim.",
+        careersDescription: "Optik, gömülü sistemler, yapay zekâ, ürün tasarımı ve ileri üretim alanlarında çalışmak isteyen herkesi bekliyoruz.",
+        careersImage: "Giyilebilir optik teknoloji üzerinde çalışan mühendislik ekibi",
+        contactEyebrow: "İletişim",
+        contactTitle: "Bir sohbet başlatalım.",
+        contactDescription: "Genel sorular, iş ortaklıkları veya platform hakkında bilgi almak için HOLOBILIG ile iletişime geçin.",
+        footerMotto: "Daha fazlasını gör, daha fazlasını bil, daha hızlı hareket et."
+      }
+    };
+
+    function setLanguage(language) {
+      const strings = translations[language];
+      if (!strings) return;
+
+      document.documentElement.lang = language;
+      document.title = strings.pageTitle;
+      document.querySelector('meta[name="description"]').content = strings.description;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (strings[key]) element.textContent = strings[key];
+      });
+
+      document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        const key = element.dataset.i18nAria;
+        if (strings[key]) element.setAttribute("aria-label", strings[key]);
+      });
+
+      document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+        const key = element.dataset.i18nAlt;
+        if (strings[key]) element.alt = strings[key];
+      });
+
+      document.querySelectorAll("[data-language]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.language === language));
+      });
+
+      try {
+        localStorage.setItem("holobilig-language", language);
+      } catch (error) {
+        // The page still works if browser storage is unavailable.
+      }
+    }
+
+    document.querySelectorAll("[data-language]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
@@ -603,6 +744,14 @@
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    let savedLanguage = "en";
+    try {
+      savedLanguage = localStorage.getItem("holobilig-language") || "en";
+    } catch (error) {
+      // Default to English if browser storage is unavailable.
+    }
+    setLanguage(savedLanguage);
   </script>
 </body>
 </html>
